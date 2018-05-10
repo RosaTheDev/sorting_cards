@@ -3,6 +3,7 @@ require 'minitest/pride'
 require './lib/card'
 require './lib/guess'
 require './lib/deck'
+require 'pry'
 
 class DeckTest < Minitest::Test
   def test_that_we_can_store_cards_into_deck
@@ -22,4 +23,15 @@ class DeckTest < Minitest::Test
 
   assert_equal [card_2, card_1, card_3], deck.sort
   end
+
+  def test_sorting_the_deck
+    card_1 = Card.new("4","Hearts")
+    card_2 = Card.new("3", "Clubs")
+    card_3 = Card.new("5", "Diamonds")
+    card_4 = Card.new("2", "Clubs")
+    deck = Deck.new([card_1, card_2, card_3, card_4])
+
+    assert_equal [card_4, card_2, card_1, card_3, ], deck.sort
+  end
+
 end

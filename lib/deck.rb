@@ -18,4 +18,5 @@ class Deck
     end
     cards
   end
+
 end
